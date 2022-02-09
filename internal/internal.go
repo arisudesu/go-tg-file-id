@@ -50,7 +50,7 @@ func posmod(a, b int) (modulo int) {
 }
 
 func abs(a int) int {
-	if a <= 0 {
+	if a < 0 {
 		a = -a
 	}
 	return a

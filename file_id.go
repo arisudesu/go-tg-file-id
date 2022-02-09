@@ -7,6 +7,11 @@ import (
 	"github.com/arisudesu/go-tg-file-id/internal"
 )
 
+const (
+	webLocationFlag   = uint32(1 << 24)
+	fileReferenceFlag = uint32(1 << 25)
+)
+
 type FileID struct {
 	Version       uint8
 	SubVersion    uint8
@@ -17,11 +22,6 @@ type FileID struct {
 	ID            uint64
 	AccessHash    uint64
 }
-
-const (
-	webLocationFlag   = uint32(1 << 24)
-	fileReferenceFlag = uint32(1 << 25)
-)
 
 func DecodeFileID(fileID string) (FileID, error) {
 	bs, err := base64.RawURLEncoding.DecodeString(fileID)
